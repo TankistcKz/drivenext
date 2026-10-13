@@ -2,23 +2,22 @@ package com.example.drivenext
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.widget.Toast
+import android.os.Handler
+import android.os.Looper
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.example.drivenext.data.AppPreferences
 import com.example.drivenext.onboarding.OnboardingActivity
 import com.example.drivenext.ui.NoInternetActivity
 import com.example.drivenext.util.NetworkUtils
 
 /**
- * Стартовый экран загрузки: название, логотип и слоган приложения.
- * Переход выполняется по клику по экрану.
+ * Стартовый экран загрузки: название, слоган и логотип приложения.
+ * Через короткую паузу автоматически переходит к онбордингу.
  */
 class EntryActivity : AppCompatActivity() {
 
-    private val preferences by lazy { AppPreferences(this) }
+    private val handler = Handler(Looper.getMainLooper())
 
     private val noInternetLauncher = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
@@ -33,10 +32,15 @@ class EntryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_entry)
 
-        findViewById<View>(R.id.entryRoot).setOnClickListener { onEntryClicked() }
+        handler.postDelayed({ onSplashFinished() }, SPLASH_DURATION_MS)
     }
 
-    private fun onEntryClicked() {
+    override fun onDestroy() {
+        handler.removeCallbacksAndMessages(null)
+        super.onDestroy()
+    }
+
+    private fun onSplashFinished() {
         if (NetworkUtils.isNetworkAvailable(this)) {
             continueFlow()
         } else {
@@ -45,11 +49,12 @@ class EntryActivity : AppCompatActivity() {
     }
 
     private fun continueFlow() {
-        if (!preferences.isOnboardingCompleted) {
-            startActivity(Intent(this, OnboardingActivity::class.java))
-        } else {
-            // TODO: переход на экран входа/регистрации (будет реализован позже)
-            Toast.makeText(this, "Экран входа/регистрации будет реализован позже", Toast.LENGTH_SHORT).show()
-        }
+        // TODO: временно онбординг показывается при каждом входе.
+        //  Вернуть проверку первого запуска: if (!preferences.isOnboardingCompleted) { ... }
+        startActivity(Intent(this, OnboardingActivity::class.java))
+    }
+
+    companion object {
+        private const val SPLASH_DURATION_MS = 2500L
     }
 }

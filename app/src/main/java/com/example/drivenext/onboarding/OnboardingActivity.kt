@@ -17,6 +17,19 @@ class OnboardingActivity : AppCompatActivity() {
 
     private val preferences by lazy { AppPreferences(this) }
 
+    private val activeDotWidth by lazy {
+        resources.getDimensionPixelSize(R.dimen.onboarding_dot_active_width)
+    }
+    private val inactiveDotWidth by lazy {
+        resources.getDimensionPixelSize(R.dimen.onboarding_dot_inactive_width)
+    }
+    private val dotHeight by lazy {
+        resources.getDimensionPixelSize(R.dimen.onboarding_dot_height)
+    }
+    private val dotMargin by lazy {
+        resources.getDimensionPixelSize(R.dimen.onboarding_dot_margin)
+    }
+
     private val pages = listOf(
         OnboardingPage(
             R.drawable.onboarding_step_1,
@@ -77,12 +90,9 @@ class OnboardingActivity : AppCompatActivity() {
     }
 
     private fun setupDots() {
-        val dotSize = resources.getDimensionPixelSize(R.dimen.onboarding_dot_size)
-        val dotMargin = resources.getDimensionPixelSize(R.dimen.onboarding_dot_margin)
-
         pages.forEachIndexed { index, _ ->
             val dot = View(this).apply {
-                layoutParams = LinearLayout.LayoutParams(dotSize, dotSize).apply {
+                layoutParams = LinearLayout.LayoutParams(inactiveDotWidth, dotHeight).apply {
                     marginStart = dotMargin
                     marginEnd = dotMargin
                 }
@@ -91,11 +101,17 @@ class OnboardingActivity : AppCompatActivity() {
             }
             dotsContainer.addView(dot)
         }
+        updateDots(0)
     }
 
     private fun updateDots(selectedPosition: Int) {
         for (index in 0 until dotsContainer.childCount) {
-            dotsContainer.getChildAt(index).isSelected = index == selectedPosition
+            val dot = dotsContainer.getChildAt(index)
+            val selected = index == selectedPosition
+            dot.isSelected = selected
+            dot.layoutParams = (dot.layoutParams as LinearLayout.LayoutParams).apply {
+                width = if (selected) activeDotWidth else inactiveDotWidth
+            }
         }
     }
 
