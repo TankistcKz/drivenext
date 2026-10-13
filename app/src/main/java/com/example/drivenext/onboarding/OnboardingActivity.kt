@@ -1,0 +1,111 @@
+package com.example.drivenext.onboarding
+
+import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import android.widget.LinearLayout
+import androidx.appcompat.app.AppCompatActivity
+import androidx.viewpager2.widget.ViewPager2
+import com.example.drivenext.R
+import com.example.drivenext.data.AppPreferences
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+
+/**
+ * Экран приветствия (онбординг) с последовательными слайдами.
+ */
+class OnboardingActivity : AppCompatActivity() {
+
+    private val preferences by lazy { AppPreferences(this) }
+
+    private val pages = listOf(
+        OnboardingPage(
+            R.drawable.onboarding_step_1,
+            R.string.onboarding_title_1,
+            R.string.onboarding_description_1
+        ),
+        OnboardingPage(
+            R.drawable.onboarding_step_2,
+            R.string.onboarding_title_2,
+            R.string.onboarding_description_2
+        ),
+        OnboardingPage(
+            R.drawable.onboarding_step_3,
+            R.string.onboarding_title_3,
+            R.string.onboarding_description_3
+        )
+    )
+
+    private lateinit var viewPager: ViewPager2
+    private lateinit var btnNext: Button
+    private lateinit var dotsContainer: LinearLayout
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_onboarding)
+
+        viewPager = findViewById(R.id.viewPager)
+        btnNext = findViewById(R.id.btnNext)
+        dotsContainer = findViewById(R.id.dotsContainer)
+
+        viewPager.adapter = OnboardingAdapter(this, pages)
+        setupDots()
+
+        viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int) {
+                updateDots(position)
+                btnNext.setText(
+                    if (position == pages.lastIndex) {
+                        R.string.onboarding_start
+                    } else {
+                        R.string.onboarding_next
+                    }
+                )
+            }
+        })
+
+        btnNext.setText(R.string.onboarding_next)
+        btnNext.setOnClickListener {
+            val nextPosition = viewPager.currentItem + 1
+            if (nextPosition <= pages.lastIndex) {
+                viewPager.setCurrentItem(nextPosition, true)
+            } else {
+                finishOnboarding()
+            }
+        }
+
+        findViewById<Button>(R.id.btnSkip).setOnClickListener { finishOnboarding() }
+    }
+
+    private fun setupDots() {
+        val dotSize = resources.getDimensionPixelSize(R.dimen.onboarding_dot_size)
+        val dotMargin = resources.getDimensionPixelSize(R.dimen.onboarding_dot_margin)
+
+        pages.forEachIndexed { index, _ ->
+            val dot = View(this).apply {
+                layoutParams = LinearLayout.LayoutParams(dotSize, dotSize).apply {
+                    marginStart = dotMargin
+                    marginEnd = dotMargin
+                }
+                setBackgroundResource(R.drawable.dot_indicator)
+                isSelected = index == 0
+            }
+            dotsContainer.addView(dot)
+        }
+    }
+
+    private fun updateDots(selectedPosition: Int) {
+        for (index in 0 until dotsContainer.childCount) {
+            dotsContainer.getChildAt(index).isSelected = index == selectedPosition
+        }
+    }
+
+    private fun finishOnboarding() {
+        preferences.isOnboardingCompleted = true
+        // TODO: переход на экран входа/регистрации (будет реализован позже)
+        MaterialAlertDialogBuilder(this)
+            .setTitle(R.string.app_name)
+            .setMessage("Экран входа/регистрации будет реализован позже")
+            .setPositiveButton(android.R.string.ok, null)
+            .show()
+    }
+}

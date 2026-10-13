@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">DriveNext</string>
+    <string name="app_slogan">Поможем найти твою следующую поездку</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_title_1">Аренда автомобилей</string>
+    <string name="onboarding_description_1">Открой для себя удобный и доступный способ передвижения</string>
+    <string name="onboarding_title_2">Безопасно и удобно</string>
+    <string name="onboarding_description_2">Арендуй автомобиль и наслаждайся его удобством</string>
+    <string name="onboarding_title_3">Лучшие предложения</string>
+    <string name="onboarding_description_3">Выбирай понравившееся среди сотен доступных автомобилей</string>
+
+    <string name="onboarding_skip">Пропустить</string>
+    <string name="onboarding_next">Далее</string>
+    <string name="onboarding_start">Поехали</string>
+
+    <!-- No internet -->
+    <string name="no_internet_title">Нет подключения к интернету</string>
+    <string name="no_internet_subtitle">Проверьте подключение и повторите попытку</string>
+    <string name="no_internet_retry">Повторить попытку</string>
+</resources>
