@@ -1,14 +1,15 @@
 package com.example.drivenext.onboarding
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
+import com.example.drivenext.LoginActivity
 import com.example.drivenext.R
 import com.example.drivenext.data.AppPreferences
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 /**
  * Экран приветствия (онбординг) с последовательными слайдами.
@@ -117,11 +118,7 @@ class OnboardingActivity : AppCompatActivity() {
 
     private fun finishOnboarding() {
         preferences.isOnboardingCompleted = true
-        // TODO: переход на экран входа/регистрации (будет реализован позже)
-        MaterialAlertDialogBuilder(this)
-            .setTitle(R.string.app_name)
-            .setMessage("Экран входа/регистрации будет реализован позже")
-            .setPositiveButton(android.R.string.ok, null)
-            .show()
+        startActivity(Intent(this, LoginActivity::class.java))
+        finish()
     }
 }

@@ -23,7 +23,6 @@ class NoInternetActivity : AppCompatActivity() {
                 setResult(RESULT_OK)
                 finish()
             }
-            // Нет сети — экран остаётся активным и продолжает отображать сообщение об ошибке.
         }
     }
 }

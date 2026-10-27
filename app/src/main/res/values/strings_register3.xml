@@ -1,0 +1,10 @@
+<resources>
+    <string name="photo_hint">Добавление фотографии поможет владельцам и арендаторам узнать друг друга, когда они будут забирать машину</string>
+    <string name="license_number_label">Номер водительского удостоверения</string>
+    <string name="license_number_hint">0000000000</string>
+    <string name="issue_date_label">Дата выдачи</string>
+    <string name="upload_license">Загрузите фото водительского удостоверения</string>
+    <string name="upload_passport">Загрузите фото паспорта</string>
+    <string name="upload_action">Загрузить фото</string>
+    <string name="upload_done">Фото загружено</string>
+</resources>

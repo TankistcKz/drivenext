@@ -10,6 +10,11 @@
 
     <!-- Brand colors -->
     <color name="brand_primary">#FF241440</color>
+    <color name="login_primary">#FF2A1246</color>
+    <color name="stroke_gray">#FFD0D5DD</color>
+    <color name="hint_gray">#FF667085</color>
+    <color name="input_bg">#FFF7F7F7</color>
+    <color name="forgot_password">#FF2A1246</color>
     <color name="text_light_gray">#FF9AA0A6</color>
     <color name="text_secondary">#FF6B7280</color>
     <color name="dot_unselected">#FFD1D5DB</color>

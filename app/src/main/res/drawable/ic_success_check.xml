@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="@color/forgot_password" />
+            <size
+                android:width="80dp"
+                android:height="80dp" />
+        </shape>
+    </item>
+    <item
+        android:width="32dp"
+        android:height="32dp"
+        android:gravity="center">
+        <vector
+            android:width="32dp"
+            android:height="32dp"
+            android:viewportWidth="96"
+            android:viewportHeight="96">
+            <path
+                android:fillColor="#00000000"
+                android:pathData="M32,47.667L42.667,58.333L64,37"
+                android:strokeWidth="4"
+                android:strokeColor="@color/white"
+                android:strokeLineCap="round"
+                android:strokeLineJoin="round" />
+        </vector>
+    </item>
+</layer-list>

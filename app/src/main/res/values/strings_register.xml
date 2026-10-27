@@ -1,0 +1,7 @@
+<resources>
+    <string name="register_title">Создать аккаунт</string>
+    <string name="agree_terms">Я согласен с условиями обслуживания и политикой конфиденциальности</string>
+    <string name="action_next">Далее</string>
+    <string name="confirm_password_label">Повторите пароль</string>
+    <string name="confirm_password_hint">Введите пароль</string>
+</resources>

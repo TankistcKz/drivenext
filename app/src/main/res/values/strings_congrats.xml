@@ -1,0 +1,5 @@
+<resources>
+    <string name="congrats_title">Поздравляем</string>
+    <string name="congrats_subtitle">Вы успешно зарегистрировались. \nОбработка ваших персональных данных займет около двух часов. Спасибо за ожидание.</string>
+    <string name="enjoy_message">Пользуйтесь с удовольствием</string>
+</resources>

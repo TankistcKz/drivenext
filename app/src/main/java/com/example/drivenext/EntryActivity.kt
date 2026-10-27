@@ -7,6 +7,7 @@ import android.os.Looper
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import com.example.drivenext.data.AppPreferences
 import com.example.drivenext.onboarding.OnboardingActivity
 import com.example.drivenext.ui.NoInternetActivity
 import com.example.drivenext.util.NetworkUtils
@@ -16,6 +17,8 @@ import com.example.drivenext.util.NetworkUtils
  * Через короткую паузу автоматически переходит к онбордингу.
  */
 class EntryActivity : AppCompatActivity() {
+
+    private val preferences by lazy { AppPreferences(this) }
 
     private val handler = Handler(Looper.getMainLooper())
 
@@ -49,9 +52,11 @@ class EntryActivity : AppCompatActivity() {
     }
 
     private fun continueFlow() {
-        // TODO: временно онбординг показывается при каждом входе.
-        //  Вернуть проверку первого запуска: if (!preferences.isOnboardingCompleted) { ... }
-        startActivity(Intent(this, OnboardingActivity::class.java))
+        if (!preferences.isOnboardingCompleted) {
+            startActivity(Intent(this, OnboardingActivity::class.java))
+        } else {
+            startActivity(Intent(this, LoginActivity::class.java))
+        }
     }
 
     companion object {

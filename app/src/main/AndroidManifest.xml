@@ -33,6 +33,30 @@
             android:name=".ui.NoInternetActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".SignInActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".RegisterActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".RegisterStep2Activity"
+            android:exported="false" />
+
+        <activity
+            android:name=".RegisterStep3Activity"
+            android:exported="false" />
+
+        <activity
+            android:name=".CongratsActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>

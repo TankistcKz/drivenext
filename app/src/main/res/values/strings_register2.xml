@@ -1,0 +1,14 @@
+<resources>
+    <string name="register_title2">Создать аккаунт</string>
+    <string name="last_name_label">Фамилия</string>
+    <string name="last_name_hint">Введите фамилию</string>
+    <string name="first_name_label">Имя</string>
+    <string name="first_name_hint">Введите имя</string>
+    <string name="middle_name_label">Отчество</string>
+    <string name="middle_name_hint">Введите отчество</string>
+    <string name="birth_date_label">Дата рождения</string>
+    <string name="birth_date_hint">DD/MM/YYYY</string>
+    <string name="gender_label">Пол</string>
+    <string name="gender_male">Мужской</string>
+    <string name="gender_female">Женский</string>
+</resources>
