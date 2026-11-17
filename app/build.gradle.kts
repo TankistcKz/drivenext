@@ -11,9 +11,29 @@ val localProperties = Properties().apply {
         file.inputStream().use { load(it) }
     }
 }
+val dotenv = Properties().apply {
+    val file = rootProject.file(".env")
+    if (file.exists()) {
+        file.forEachLine { line ->
+            val trimmed = line.trim()
+            if (trimmed.isEmpty() || trimmed.startsWith("#")) return@forEachLine
+            val separator = trimmed.indexOf('=')
+            if (separator <= 0) return@forEachLine
+            val key = trimmed.substring(0, separator).trim()
+            var value = trimmed.substring(separator + 1).trim()
+            if ((value.startsWith("\"") && value.endsWith("\"")) ||
+                (value.startsWith("'") && value.endsWith("'"))
+            ) {
+                value = value.substring(1, value.length - 1)
+            }
+            setProperty(key, value)
+        }
+    }
+}
 val googleWebClientId: String = (
     localProperties.getProperty("google.webClientId")
         ?: System.getenv("GOOGLE_WEB_CLIENT_ID")
+        ?: dotenv.getProperty("GOOGLE_WEB_CLIENT_ID")
         ?: ""
     ).trim()
 
