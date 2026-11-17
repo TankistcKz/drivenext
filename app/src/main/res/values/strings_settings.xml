@@ -1,0 +1,11 @@
+<resources>
+    <string name="settings_title">Настройки</string>
+    <string name="settings_name">Иван Иванов</string>
+    <string name="settings_email">ivan@mtuci.ru</string>
+    <string name="settings_my_bookings">Мои бронирования</string>
+    <string name="settings_theme">Тема</string>
+    <string name="settings_notifications">Уведомления</string>
+    <string name="settings_connect_car">Подключить свой автомобиль</string>
+    <string name="settings_help">Помощь</string>
+    <string name="settings_invite_friend">Пригласи друга</string>
+</resources>

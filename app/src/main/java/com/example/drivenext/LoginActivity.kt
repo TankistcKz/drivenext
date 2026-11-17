@@ -6,7 +6,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 /**
- * Экран входа. Реализован в виде копии splash-экрана с двумя кнопками внизу.
+ * Экран входа.
  */
 class LoginActivity : AppCompatActivity() {
 

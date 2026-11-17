@@ -1,0 +1,9 @@
+<resources>
+    <string name="search_results_title">Результаты поиска</string>
+    <string name="car_book">Забронировать</string>
+    <string name="car_details">Детали</string>
+    <string name="loader_searching">Ищем подходящие автомобили</string>
+    <string name="search_error">Не удалось выполнить поиск. Попробуйте снова.</string>
+    <string name="load_error">Не удалось загрузить данные. Попробуйте снова.</string>
+    <string name="retry">Повторить</string>
+</resources>

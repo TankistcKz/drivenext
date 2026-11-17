@@ -57,6 +57,26 @@
             android:name=".CongratsActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".HomepageActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ProfileActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".LoaderActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".SearchResultActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>

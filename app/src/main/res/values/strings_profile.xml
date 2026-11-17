@@ -1,0 +1,16 @@
+<resources>
+    <string name="profile_title">Профиль</string>
+    <string name="profile_name">Иван Иванов</string>
+    <string name="profile_joined">Присоединился в июле 2024</string>
+    <string name="profile_email_label">Электронная почта</string>
+    <string name="profile_email_value">ivanov@mtuci.ru</string>
+    <string name="profile_password_label">Пароль</string>
+    <string name="profile_password_value">Поменять пароль</string>
+    <string name="profile_gender_label">Пол</string>
+    <string name="profile_gender_value">Мужской</string>
+    <string name="profile_google_label">Google</string>
+    <string name="profile_google_value">Не подключен</string>
+    <string name="profile_logout">Выйти из профиля</string>
+    <string name="profile_avatar_change">Сменить аватарку</string>
+    <string name="profile_avatar_add">Добавить фото профиля</string>
+</resources>

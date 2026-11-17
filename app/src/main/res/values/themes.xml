@@ -19,6 +19,11 @@
         <item name="colorControlNormal">#D0D5DD</item>
     </style>
 
+    <style name="ShapeAppearanceOverlay.DriveNext.Avatar" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
     <style name="Theme.DriveNext.Splash" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/white</item>
         <item name="windowSplashScreenAnimatedIcon">@drawable/splash_icon_transparent</item>

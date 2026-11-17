@@ -5,3 +5,6 @@
 /app/build
 /captures
 local.properties
+.env
+firebase-debug.log
+/app/google-services.json
